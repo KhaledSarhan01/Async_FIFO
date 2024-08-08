@@ -1,0 +1,3 @@
+../Design/DATA_SYNC.v
+../Design/FIFO.v
+../Design/FIFO_RAM.v
