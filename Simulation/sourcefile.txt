@@ -3,3 +3,4 @@
 ../Design/FIFO_RAM.v
 ../Design/WR_CONTRL.v
 ../Design/RD_CONTRL.v
+../Testbench/Testbench.sv

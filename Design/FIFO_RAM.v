@@ -5,8 +5,8 @@ module DUAL_RAM #(parameter DATA_WIDTH =8,parameter ADDR_WIDTH= 4 ,parameter MEM
     input wire [DATA_WIDTH-1:0] wrdata,
     input wire [ADDR_WIDTH-1:0] waddr, 
     //Read Part
-    output reg [ADDR_WIDTH-1:0] rdata,
-    input wire  [DATA_WIDTH-1:0] raddr
+    output reg [DATA_WIDTH-1:0] rdata,
+    input wire  [ADDR_WIDTH-1:0] raddr
 );
 
 // RAM Structure
