@@ -44,14 +44,14 @@ DUAL_RAM #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) 
 DATA_SYNC #(.NUM_STAGES(NUM_STAGES),.BUS_WIDTH(DATA_WIDTH)) SYNC_R2W(
     .CLK(W_CLK),.RST(W_RST),
     .Unsync_bus(unsync_rd_ptr),
-    .sync_bus(sync_rd_ptr),
+    .sync_bus(sync_rd_ptr)
 );
 
 //SYNCING WRITE TO READ
 DATA_SYNC #(.NUM_STAGES(NUM_STAGES),.BUS_WIDTH(DATA_WIDTH)) SYNC_W2R(
     .CLK(R_CLK),.RST(R_RST),
     .Unsync_bus(unsync_wr_ptr),
-    .sync_bus(sync_wr_ptr),
+    .sync_bus(sync_wr_ptr)
 );
 
 //READ CONTROL LOGIC

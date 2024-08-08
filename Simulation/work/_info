@@ -10,22 +10,22 @@ z2
 cModel Technology
 dD:/Programs/Questasim/examples
 vDATA_SYNC
-Z0 !s110 1723149104
+Z0 !s110 1723151701
 !i10b 1
-!s100 _onPR=O]c77d2Rd=^8oTP2
-Ij>N_e[5OV;nAbEDhzIH852
+!s100 K39kCXbMMU3Pa?f;B<g6o0
+IOKD<Rb5=34<QU<Z5CVIDI2
 Z1 dD:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Simulation
-w1723148204
+w1723151695
 8../Design/DATA_SYNC.v
 F../Design/DATA_SYNC.v
-!i122 6
-L0 1 48
+!i122 9
+L0 1 25
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z4 !s108 1723149104.000000
+Z4 !s108 1723151701.000000
 !s107 ../Design/FIFO_RAM.v|../Design/FIFO.v|../Design/DATA_SYNC.v|
 Z5 !s90 -reportprogress|300|-f|sourcefile.txt|
 !i113 0
@@ -41,7 +41,7 @@ R1
 w1723149101
 8../Design/FIFO_RAM.v
 F../Design/FIFO_RAM.v
-!i122 6
+!i122 9
 L0 1 40
 R2
 R3
@@ -58,14 +58,14 @@ n@d@u@a@l_@r@a@m
 vFIFO
 R0
 !i10b 1
-!s100 lm6ZMbW;5K3][^;oj[LL]0
-IEKg4VKG?BjhOQ>I=88CKY2
+!s100 iIGHOgn][WajnAS?8`gGD1
+Ikdl4M024mTZ0?k`:3X]_81
 R1
-w1723148242
+w1723151340
 8../Design/FIFO.v
 F../Design/FIFO.v
-!i122 6
-L0 1 95
+!i122 9
+L0 1 83
 R2
 R3
 r1
