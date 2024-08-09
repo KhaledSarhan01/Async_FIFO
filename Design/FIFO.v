@@ -10,10 +10,6 @@ module FIFO #(parameter DATA_WIDTH = 8 ,parameter ADDR_WIDTH = 4,parameter MEM_S
     output wire [DATA_WIDTH-1:0] RD_DATA,
     output wire EMPTY
 );
-//Parameters
-    //Synchronizer steps "The output is at the second Clock"
-    parameter NUM_STAGES = 2;
-
 //Wires
     //Address
         wire [ADDR_WIDTH-1:0] Wr_ADDR;
@@ -41,14 +37,14 @@ DUAL_RAM #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) 
 );
 
 //SYNCING READ TO WRITE 
-DATA_SYNC #(.NUM_STAGES(NUM_STAGES),.BUS_WIDTH(ADDR_WIDTH+1)) SYNC_R2W(
+DATA_SYNC #(.BUS_WIDTH(ADDR_WIDTH+1)) SYNC_R2W(
     .CLK(W_CLK),.RST(W_RST),
     .Unsync_bus(unsync_rd_ptr),
     .sync_bus(sync_rd_ptr)
 );
 
 //SYNCING WRITE TO READ
-DATA_SYNC #(.NUM_STAGES(NUM_STAGES),.BUS_WIDTH(ADDR_WIDTH+1)) SYNC_W2R(
+DATA_SYNC #(.BUS_WIDTH(ADDR_WIDTH+1)) SYNC_W2R(
     .CLK(R_CLK),.RST(R_RST),
     .Unsync_bus(unsync_wr_ptr),
     .sync_bus(sync_wr_ptr)
