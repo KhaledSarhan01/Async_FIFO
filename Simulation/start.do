@@ -19,6 +19,4 @@ sim:/tb_FIFO/DUT/sync_wr_ptr
 add wave -position insertpoint  \
 sim:/tb_FIFO/DUT/Wr_ADDR \
 sim:/tb_FIFO/DUT/Rd_ADDR
-add wave -position insertpoint  \
-sim:/tb_FIFO/DUT/FIFO_MEMORY/g_clk
 run -all
