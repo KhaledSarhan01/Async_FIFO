@@ -10,7 +10,7 @@ module DUAL_RAM #(parameter DATA_WIDTH =8,parameter ADDR_WIDTH= 4 ,parameter MEM
 );
 
 // RAM Structure
-    reg [ADDR_WIDTH-1:0] MEM [MEM_SIZE-1:0];
+    reg [DATA_WIDTH-1:0] MEM [MEM_SIZE-1:0];
     integer i;
 
 // Clock gating

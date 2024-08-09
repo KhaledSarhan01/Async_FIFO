@@ -41,6 +41,14 @@ module tb_FIFO;
     wire [ADDR_WIDTH-1:0] Rd_address;
     assign Rd_address = DUT.Rd_ADDR;
 
+//Test Data
+    reg [DATA_WIDTH-1:0] Test_Data [PKT_SIZE-1:0];
+    integer i;
+    initial begin
+        for ( i=0 ; i<= PKT_SIZE-1 ; i=i+1 ) begin
+           Test_Data[i]= $random; 
+        end
+    end
 //////////////////////////////
 /////// Instatiation ////////
 ////////////////////////////
@@ -85,7 +93,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
         // Reset 
             Write_Reset();
         // Write a Packet
-            Packet_Write();
+            Packet_Write(Test_Data);
 
     end
 
@@ -98,7 +106,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
         // Reset 
             Read_Reset();
         //Read a Packet
-         //   Packet_Read();
+            Packet_Read(Test_Data);
         //stop the Testbench
         $display("======= Testbench End =======");
         #1000; $stop;   
