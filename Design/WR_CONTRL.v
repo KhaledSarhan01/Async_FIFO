@@ -38,13 +38,11 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
     end
     
     // Full Flag Logic
-    wire full_condition;
-    assign full_condition = (gray_ptr[ADDR_WIDTH:ADDR_WIDTH-1] != r_ptr[ADDR_WIDTH:ADDR_WIDTH-1])&& (gray_ptr[ADDR_WIDTH-2:0] == r_ptr[ADDR_WIDTH-2:0]);
     always @(posedge w_clk or negedge w_rst) begin
         if (!w_rst) begin
             full_flag <= 1'b0;
         end else begin
-            if (full_condition) begin
+            if ((gray_ptr[ADDR_WIDTH:ADDR_WIDTH-1] != r_ptr[ADDR_WIDTH:ADDR_WIDTH-1])&& (gray_ptr[ADDR_WIDTH-2:0] == r_ptr[ADDR_WIDTH-2:0])) begin
                 full_flag <= 1'b1;
             end else begin
                 full_flag <= 1'b0;

@@ -39,13 +39,11 @@ module RD_CONTRL #(parameter ADDR_WIDTH = 4)(
     end
     
     // Full Flag Logic
-    wire empty_condition;
-    assign empty_condition = (gray_ptr == w_ptr);
     always @(posedge r_clk or negedge r_rst) begin
         if (!r_rst) begin
             empty_flag <= 1'b1;
         end else begin
-            if (empty_condition) begin
+            if ((gray_ptr == w_ptr)) begin
                 empty_flag <= 1'b1;
             end else begin
                 empty_flag <= 1'b0;

@@ -61,8 +61,8 @@ RD_CONTRL #(.ADDR_WIDTH(ADDR_WIDTH)) rptr_empty(
     .rinc(R_INC),
     .rempty(EMPTY),
     //pointers 
-    .w_ptr(sync_wr_ptr),
-    .r_ptr(unsync_rd_ptr),
+    .w_ptr(sync_wr_ptr),    // Here we input Write pointer from W2R SYNC
+    .r_ptr(unsync_rd_ptr),  // Here we output Read pointer into R2W SYNC
     //memory
     .raddr(Rd_ADDR)
 );
@@ -74,8 +74,8 @@ WR_CONTRL #(.ADDR_WIDTH(ADDR_WIDTH)) wptr_full(
     .winc(W_INC),
     .wfull(FULL),
     //pointers 
-    .w_ptr(unsync_wr_ptr),
-    .r_ptr(sync_rd_ptr),
+    .w_ptr(unsync_wr_ptr),  // Here we output Write pointer into W2R SYNC
+    .r_ptr(sync_rd_ptr),    // Here we input Read pointer from R2W SYNC
     //memory
     .waddr(Wr_ADDR)
 );
