@@ -72,10 +72,11 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
         $dumpvars;
 
         // Write Initialization
-
-        // Reset Test
-        
+            Write_Initialization();
+        // Reset 
+            Write_Reset();
         // Write a Packet
+        //    Packet_Write();
 
     end
 
@@ -84,11 +85,11 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
 ////////////////////////////
     initial begin
         //Read Initialization
-
-        //Reset Test
-
+            Read_Initialization();
+        // Reset 
+            Read_Reset();
         //Read a Packet
-        
+        //    Packet_Read();
         //stop the Testbench
         $display("======= Testbench End =======");
         #1000; $stop;   
@@ -97,5 +98,69 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
 //////////////////////////////
 ////////// Tasks ////////////
 ////////////////////////////
+
+// Write Tasks 
+    task Write_Initialization;
+    begin
+        tb_W_RST = 1'b1;
+        tb_W_INC = 1'b0;
+        tb_WR_DATA = 8'b0;
+    end
+    endtask
+
+    task  Write_Reset;
+    begin
+        #(WR_Clock_Period); //set time
+        $display("---->Reset the Write Part");
+        tb_W_RST = 1'b0;
+        #(WR_Clock_Period); //release time
+        tb_W_RST = 1'b1;  
+    end
+    endtask
+
+  /*  task Packet_Write;
+        begin
+            
+        end
+    endtask    
+    */
+//Read Tasks 
+    task Read_Initialization;
+    begin
+        tb_R_RST = 1'b1 ;
+        tb_R_INC = 1'b0 ;  
+    end
+    endtask    
+
+    task Read_Reset;
+    begin
+          #(RD_Clock_Period); //set time
+          $display("---->Reset the Read Part");
+          tb_R_RST = 1'b0;
+          #(RD_Clock_Period); //release time
+          tb_R_RST = 1'b1;
+    end
+    endtask 
     
+ /*   task Packet_Read;
+    begin
+            
+    end
+    endtask     
+    */
 endmodule
+
+/*
+    Write Variables
+        tb_W_INC = 1'b0;
+        tb_WR_DATA = 8'b0;
+        
+        tb_FULL = 1'b0;
+
+    Read Variables
+        tb_R_RST = 1'b1 ;
+        tb_R_INC = 1'b0 ;
+
+        tb_RD_DATA = 8'b0;
+        tb_EMPTY = 1'b0;
+*/

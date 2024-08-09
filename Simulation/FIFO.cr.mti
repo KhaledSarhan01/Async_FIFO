@@ -1,18 +1,4 @@
-{D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/RD_CONTRL.v} {1 {vlog -work work -vopt -stats=none {D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/RD_CONTRL.v}
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module RD_CONTRL
-
-Top level modules:
-	RD_CONTRL
-
-} {} {}} {D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/WR_CONTRL.v} {1 {vlog -work work -vopt -stats=none {D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/WR_CONTRL.v}
-QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
--- Compiling module WR_CONTRL
-
-Top level modules:
-	WR_CONTRL
-
-} {} {}} {D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/DATA_SYNC.v} {1 {vlog -work work -vopt -stats=none {D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/DATA_SYNC.v}
+{D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/DATA_SYNC.v} {1 {vlog -work work -vopt -stats=none {D:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Design/DATA_SYNC.v}
 QuestaSim-64 vlog 2021.1 Compiler 2021.01 Jan 19 2021
 -- Compiling module DATA_SYNC
 

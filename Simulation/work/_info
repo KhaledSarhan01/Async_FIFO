@@ -5,6 +5,9 @@ Z0 !s99 nomlopt
 R0
 R0
 R0
+R0
+R0
+R0
 !s11f MIXED_VERSIONS
 13
 !s112 1.1
@@ -25,17 +28,17 @@ n@_opt
 Z5 OL;O;2021.1;73
 R1
 T_opt1
-!s110 1723158026
-VnXL@[[XWlXh8@kk?Y6[z^1
+Z6 !s110 1723160185
+V=0`m6HdJhb8K3aDhQdbQB3
 R2
-=1-902e161d0c93-66b54e0a-fb-2f04
+=5-902e161d0c93-66b55679-e1-2f04
 R3
 o-quiet -auto_acc_if_foreign -work work +acc
 R4
 n@_opt1
 R5
 vDATA_SYNC
-Z6 !s110 1723158023
+R6
 !i10b 1
 !s100 K39kCXbMMU3Pa?f;B<g6o0
 IOKD<Rb5=34<QU<Z5CVIDI2
@@ -43,14 +46,14 @@ Z7 dD:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Simulation
 w1723151695
 8../Design/DATA_SYNC.v
 F../Design/DATA_SYNC.v
-!i122 21
+!i122 25
 L0 1 25
 Z8 VDg1SIo80bB@j0V0VzS_@n1
 Z9 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z10 !s108 1723158023.000000
+Z10 !s108 1723160185.000000
 Z11 !s107 ../Testbench/Testbench.sv|../Design/RD_CONTRL.v|../Design/WR_CONTRL.v|../Design/FIFO_RAM.v|../Design/FIFO.v|../Design/DATA_SYNC.v|
 Z12 !s90 -reportprogress|300|-f|sourcefile.txt|
 !i113 0
@@ -66,7 +69,7 @@ R7
 w1723157963
 8../Design/FIFO_RAM.v
 F../Design/FIFO_RAM.v
-!i122 21
+!i122 25
 L0 1 40
 R8
 R9
@@ -89,7 +92,7 @@ R7
 w1723158016
 8../Design/FIFO.v
 F../Design/FIFO.v
-!i122 21
+!i122 25
 L0 1 83
 R8
 R9
@@ -106,14 +109,14 @@ n@f@i@f@o
 vRD_CONTRL
 R6
 !i10b 1
-!s100 i?LichT<;Kf2gKQF^J@lJ3
-IfAV_4X6iAeFZ2nd30Pk?72
+!s100 dHUbccDb50FKQUkUBjYk61
+IoX<fa<=JJdTb3^3gcP9eC1
 R7
-w1723155342
+w1723160151
 8../Design/RD_CONTRL.v
 F../Design/RD_CONTRL.v
-!i122 21
-L0 1 55
+!i122 25
+L0 1 60
 R8
 R9
 r1
@@ -130,15 +133,15 @@ vtb_FIFO
 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 R6
 !i10b 1
-!s100 :R]]CNT;RL_Pk8dF<_BTY2
-IQE]h_65iNg<bH3Ak9Kg120
+!s100 [G9ZYG0:bEK0]Q6U;Yb;[1
+I_TnVzDT6Q;CiiDAk3?MXe0
 S1
 R7
-w1723157465
+w1723159543
 8../Testbench/Testbench.sv
 F../Testbench/Testbench.sv
-!i122 21
-L0 14 82
+!i122 25
+L0 14 138
 R8
 R9
 r1
@@ -154,14 +157,14 @@ ntb_@f@i@f@o
 vWR_CONTRL
 R6
 !i10b 1
-!s100 dhIfkIDfNRg=R8lYDH3Va1
-Ifn6JznYNHU@;>Q954=^8[1
+!s100 B=?;2h:i3@99Si>_iEG=;1
+I]o4E7oQT=O`A0S76mio2m1
 R7
-w1723155034
+w1723160168
 8../Design/WR_CONTRL.v
 F../Design/WR_CONTRL.v
-!i122 21
-L0 1 54
+!i122 25
+L0 1 59
 R8
 R9
 r1

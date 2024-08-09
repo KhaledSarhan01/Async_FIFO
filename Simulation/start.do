@@ -16,4 +16,7 @@ add wave -position insertpoint  \
 sim:/tb_FIFO/DUT/FIFO_MEMORY/MEM \
 sim:/tb_FIFO/DUT/sync_rd_ptr \
 sim:/tb_FIFO/DUT/sync_wr_ptr
+add wave -position insertpoint  \
+sim:/tb_FIFO/DUT/Wr_ADDR \
+sim:/tb_FIFO/DUT/Rd_ADDR
 run -all

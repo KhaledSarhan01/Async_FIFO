@@ -26,9 +26,14 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
 
     // Gray Encoded Pointer Logic
     integer i; 
-    always @(*) begin
-        for (i=0; i<ADDR_WIDTH; i=i+1) begin
+    always @(posedge w_clk or negedge w_rst) begin
+        if (!w_rst) begin
+            gray_ptr <= 'b0;
+        end else begin
+            for (i=0; i<ADDR_WIDTH-1; i=i+1) begin
             gray_ptr[i] = bn_ptr[i] ^ bn_ptr[i+1];
+            end 
+            gray_ptr[ADDR_WIDTH] = bn_ptr[ADDR_WIDTH];
         end
     end
     

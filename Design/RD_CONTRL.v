@@ -27,9 +27,14 @@ module RD_CONTRL #(parameter ADDR_WIDTH = 4)(
 
     // Gray Encoded Pointer Logic
     integer i; 
-    always @(*) begin
-        for (i=0; i<ADDR_WIDTH; i=i+1) begin
+    always @(posedge r_clk or negedge r_rst) begin
+        if (!r_rst) begin
+            gray_ptr <= 'b0;
+        end else begin
+            for (i=0; i<ADDR_WIDTH-1; i=i+1) begin
             gray_ptr[i] = bn_ptr[i] ^ bn_ptr[i+1];
+            end 
+            gray_ptr[ADDR_WIDTH] = bn_ptr[ADDR_WIDTH];
         end
     end
     
@@ -38,7 +43,7 @@ module RD_CONTRL #(parameter ADDR_WIDTH = 4)(
     assign empty_condition = (gray_ptr == w_ptr);
     always @(posedge r_clk or negedge r_rst) begin
         if (!r_rst) begin
-            empty_flag <= 1'b0;
+            empty_flag <= 1'b1;
         end else begin
             if (empty_condition) begin
                 empty_flag <= 1'b1;
