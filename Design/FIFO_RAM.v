@@ -29,6 +29,7 @@ module DUAL_RAM #(parameter DATA_WIDTH =8,parameter ADDR_WIDTH= 4 ,parameter MEM
             for (i=0; i<= MEM_SIZE-1; i=i+1) begin
                 MEM[i] <= 'b0;
             end
+            rdata <= 'b0;
         end else begin
             //Read Part logic
                 rdata <= MEM[raddr];

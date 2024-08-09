@@ -19,6 +19,7 @@ module tb_FIFO;
     parameter DATA_WIDTH = 8 ;
     parameter ADDR_WIDTH = 4;
     parameter MEM_SIZE = 32;
+    localparam PKT_SIZE = 10;
 
 //Write Part
     reg tb_W_CLK,tb_W_RST;
@@ -31,6 +32,14 @@ module tb_FIFO;
     reg tb_R_INC;
     wire [DATA_WIDTH-1:0] tb_RD_DATA;
     wire tb_EMPTY;
+
+//Interanl Signals
+    wire [DATA_WIDTH-1:0] RAM_MEMORY [MEM_SIZE-1:0];
+    assign RAM_MEMORY = DUT.FIFO_MEMORY.MEM;
+    wire [ADDR_WIDTH-1:0] Wr_address;
+    assign Wr_address = DUT.Wr_ADDR;
+    wire [ADDR_WIDTH-1:0] Rd_address;
+    assign Rd_address = DUT.Rd_ADDR;
 
 //////////////////////////////
 /////// Instatiation ////////
@@ -76,7 +85,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
         // Reset 
             Write_Reset();
         // Write a Packet
-        //    Packet_Write();
+            Packet_Write();
 
     end
 
@@ -89,7 +98,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
         // Reset 
             Read_Reset();
         //Read a Packet
-        //    Packet_Read();
+         //   Packet_Read();
         //stop the Testbench
         $display("======= Testbench End =======");
         #1000; $stop;   
@@ -100,7 +109,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
 ////////////////////////////
 
 // Write Tasks 
-    task Write_Initialization;
+task Write_Initialization;
     begin
         tb_W_RST = 1'b1;
         tb_W_INC = 1'b0;
@@ -108,7 +117,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
     end
     endtask
 
-    task  Write_Reset;
+task  Write_Reset;
     begin
         #(WR_Clock_Period); //set time
         $display("---->Reset the Write Part");
@@ -118,21 +127,49 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
     end
     endtask
 
-  /*  task Packet_Write;
-        begin
-            
+task Packet_Write;
+    input [DATA_WIDTH-1:0] INPUT_Data [PKT_SIZE-1:0];
+    integer i;
+    begin
+    $display("Writing Data into FIFO has started at time=%0t",$time);
+    //Setting Time
+     tb_W_INC = 1'b1;
+
+    //Adding Data 
+    for ( i = 0; i <= PKT_SIZE-1 ; i=i+1 ) begin
+        tb_WR_DATA = INPUT_Data[i];
+        $display("Entering Data =%8b at time=%0t",INPUT_Data[i],$time);
+        @(posedge tb_W_CLK);
+        check_write_data(INPUT_Data[i]);
+    end
+    
+    //Release Time
+     #(WR_Clock_Period);
+     tb_W_INC = 1'b1;
+     $display("Writing Data into FIFO has finished at time=%0t",$time);
+    end
+endtask    
+    
+task check_write_data;
+    input [DATA_WIDTH-1:0] reference_Data;
+    begin
+        #(WR_Clock_Period*0.25);
+        if (reference_Data == RAM_MEMORY[Wr_address]) begin
+            $display("Entering Data Success at time=%0t and Data = %8b",$time,RAM_MEMORY[Wr_address]);
+        end else begin
+            $display("Entering Data Fails at time=%0t and Data = %8b",$time,RAM_MEMORY[Wr_address]);
         end
-    endtask    
-    */
+    end
+endtask    
 //Read Tasks 
-    task Read_Initialization;
+task Read_Initialization;
     begin
         tb_R_RST = 1'b1 ;
         tb_R_INC = 1'b0 ;  
     end
     endtask    
 
-    task Read_Reset;
+task Read_Reset;
     begin
           #(RD_Clock_Period); //set time
           $display("---->Reset the Read Part");
@@ -142,12 +179,40 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
     end
     endtask 
     
- /*   task Packet_Read;
+task Packet_Read;
+    input [DATA_WIDTH-1:0] INPUT_Data [PKT_SIZE-1:0];
+    integer i;
     begin
-            
+    $display("Reading Data into FIFO has started at time=%0t",$time);
+    //Setting Time
+     tb_R_INC = 1'b1;
+
+    //Adding Data 
+    wait(tb_EMPTY);
+    for ( i = 0; i <= PKT_SIZE-1 ; i=i+1 ) begin
+        $display("Outputing Data =%8b at time=%0t",INPUT_Data[i],$time);
+        @(posedge tb_W_CLK);
+        check_read_data(INPUT_Data[i]);
     end
-    endtask     
-    */
+    
+    //Release Time
+     #(WR_Clock_Period);
+     tb_W_INC = 1'b1;
+     $display("Reading Data into FIFO has finished at time=%0t",$time);
+    end
+endtask     
+
+task check_read_data;
+    input [DATA_WIDTH-1:0] reference_Data;
+    begin
+        #(RD_Clock_Period*0.25);
+        if (reference_Data == tb_RD_DATA) begin
+            $display("Exiting Data Success at time=%0t and Data = %8b",$time,tb_RD_DATA);
+        end else begin
+            $display("Exiting Data Fails at time=%0t and Data = %8b",$time,tb_RD_DATA);
+        end
+    end
+endtask 
 endmodule
 
 /*

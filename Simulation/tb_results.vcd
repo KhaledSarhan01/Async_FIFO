@@ -1,0 +1,646 @@
+$date
+	Fri Aug  9 03:57:19 2024
+$end
+$version
+	QuestaSim Version 2021.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module tb_FIFO $end
+$var parameter 32 ! DATA_WIDTH $end
+$var parameter 32 " ADDR_WIDTH $end
+$var parameter 32 # MEM_SIZE $end
+$var parameter 32 $ RD_Clock_Period $end
+$var parameter 32 % WR_Clock_Period $end
+$var reg 1 & tb_W_CLK $end
+$var reg 1 ' tb_W_RST $end
+$var reg 1 ( tb_W_INC $end
+$var reg 8 ) tb_WR_DATA [7:0] $end
+$var wire 1 * tb_FULL $end
+$var reg 1 + tb_R_CLK $end
+$var reg 1 , tb_R_RST $end
+$var reg 1 - tb_R_INC $end
+$var wire 1 . tb_RD_DATA [7] $end
+$var wire 1 / tb_RD_DATA [6] $end
+$var wire 1 0 tb_RD_DATA [5] $end
+$var wire 1 1 tb_RD_DATA [4] $end
+$var wire 1 2 tb_RD_DATA [3] $end
+$var wire 1 3 tb_RD_DATA [2] $end
+$var wire 1 4 tb_RD_DATA [1] $end
+$var wire 1 5 tb_RD_DATA [0] $end
+$var wire 1 6 tb_EMPTY $end
+
+$scope task Write_Initialization $end
+$upscope $end
+
+$scope task Write_Reset $end
+$upscope $end
+
+$scope task Read_Initialization $end
+$upscope $end
+
+$scope task Read_Reset $end
+$upscope $end
+
+$scope module DUT $end
+$var parameter 32 7 DATA_WIDTH $end
+$var parameter 32 8 ADDR_WIDTH $end
+$var parameter 32 9 MEM_SIZE $end
+$var parameter 32 : NUM_STAGES $end
+$var wire 1 ; W_CLK $end
+$var wire 1 < W_RST $end
+$var wire 1 = W_INC $end
+$var wire 1 > WR_DATA [7] $end
+$var wire 1 ? WR_DATA [6] $end
+$var wire 1 @ WR_DATA [5] $end
+$var wire 1 A WR_DATA [4] $end
+$var wire 1 B WR_DATA [3] $end
+$var wire 1 C WR_DATA [2] $end
+$var wire 1 D WR_DATA [1] $end
+$var wire 1 E WR_DATA [0] $end
+$var wire 1 * FULL $end
+$var wire 1 F R_CLK $end
+$var wire 1 G R_RST $end
+$var wire 1 H R_INC $end
+$var wire 1 . RD_DATA [7] $end
+$var wire 1 / RD_DATA [6] $end
+$var wire 1 0 RD_DATA [5] $end
+$var wire 1 1 RD_DATA [4] $end
+$var wire 1 2 RD_DATA [3] $end
+$var wire 1 3 RD_DATA [2] $end
+$var wire 1 4 RD_DATA [1] $end
+$var wire 1 5 RD_DATA [0] $end
+$var wire 1 6 EMPTY $end
+$var wire 1 I Wr_ADDR [3] $end
+$var wire 1 J Wr_ADDR [2] $end
+$var wire 1 K Wr_ADDR [1] $end
+$var wire 1 L Wr_ADDR [0] $end
+$var wire 1 M Rd_ADDR [3] $end
+$var wire 1 N Rd_ADDR [2] $end
+$var wire 1 O Rd_ADDR [1] $end
+$var wire 1 P Rd_ADDR [0] $end
+$var wire 1 Q unsync_rd_ptr [4] $end
+$var wire 1 R unsync_rd_ptr [3] $end
+$var wire 1 S unsync_rd_ptr [2] $end
+$var wire 1 T unsync_rd_ptr [1] $end
+$var wire 1 U unsync_rd_ptr [0] $end
+$var wire 1 V sync_rd_ptr [4] $end
+$var wire 1 W sync_rd_ptr [3] $end
+$var wire 1 X sync_rd_ptr [2] $end
+$var wire 1 Y sync_rd_ptr [1] $end
+$var wire 1 Z sync_rd_ptr [0] $end
+$var wire 1 [ unsync_wr_ptr [4] $end
+$var wire 1 \ unsync_wr_ptr [3] $end
+$var wire 1 ] unsync_wr_ptr [2] $end
+$var wire 1 ^ unsync_wr_ptr [1] $end
+$var wire 1 _ unsync_wr_ptr [0] $end
+$var wire 1 ` sync_wr_ptr [4] $end
+$var wire 1 a sync_wr_ptr [3] $end
+$var wire 1 b sync_wr_ptr [2] $end
+$var wire 1 c sync_wr_ptr [1] $end
+$var wire 1 d sync_wr_ptr [0] $end
+$var wire 1 e Wr_CLK_En $end
+
+$scope module FIFO_MEMORY $end
+$var parameter 32 f DATA_WIDTH $end
+$var parameter 32 g ADDR_WIDTH $end
+$var parameter 32 h MEM_SIZE $end
+$var wire 1 ; w_clk $end
+$var wire 1 < w_rst $end
+$var wire 1 e wclken $end
+$var wire 1 > wrdata [7] $end
+$var wire 1 ? wrdata [6] $end
+$var wire 1 @ wrdata [5] $end
+$var wire 1 A wrdata [4] $end
+$var wire 1 B wrdata [3] $end
+$var wire 1 C wrdata [2] $end
+$var wire 1 D wrdata [1] $end
+$var wire 1 E wrdata [0] $end
+$var wire 1 I waddr [3] $end
+$var wire 1 J waddr [2] $end
+$var wire 1 K waddr [1] $end
+$var wire 1 L waddr [0] $end
+$var reg 8 i rdata [7:0] $end
+$var wire 1 M raddr [3] $end
+$var wire 1 N raddr [2] $end
+$var wire 1 O raddr [1] $end
+$var wire 1 P raddr [0] $end
+$var integer 32 j i $end
+$var wire 1 k g_clk $end
+$var reg 1 l g_clk_latch $end
+$upscope $end
+
+$scope module SYNC_R2W $end
+$var parameter 32 m NUM_STAGES $end
+$var parameter 32 n BUS_WIDTH $end
+$var wire 1 ; CLK $end
+$var wire 1 < RST $end
+$var wire 1 Q Unsync_bus [4] $end
+$var wire 1 R Unsync_bus [3] $end
+$var wire 1 S Unsync_bus [2] $end
+$var wire 1 T Unsync_bus [1] $end
+$var wire 1 U Unsync_bus [0] $end
+$var wire 1 V sync_bus [4] $end
+$var wire 1 W sync_bus [3] $end
+$var wire 1 X sync_bus [2] $end
+$var wire 1 Y sync_bus [1] $end
+$var wire 1 Z sync_bus [0] $end
+$var integer 32 o i $end
+$upscope $end
+
+$scope module SYNC_W2R $end
+$var parameter 32 p NUM_STAGES $end
+$var parameter 32 q BUS_WIDTH $end
+$var wire 1 F CLK $end
+$var wire 1 G RST $end
+$var wire 1 [ Unsync_bus [4] $end
+$var wire 1 \ Unsync_bus [3] $end
+$var wire 1 ] Unsync_bus [2] $end
+$var wire 1 ^ Unsync_bus [1] $end
+$var wire 1 _ Unsync_bus [0] $end
+$var wire 1 ` sync_bus [4] $end
+$var wire 1 a sync_bus [3] $end
+$var wire 1 b sync_bus [2] $end
+$var wire 1 c sync_bus [1] $end
+$var wire 1 d sync_bus [0] $end
+$var integer 32 r i $end
+$upscope $end
+
+$scope module rptr_empty $end
+$var parameter 32 s ADDR_WIDTH $end
+$var wire 1 F r_clk $end
+$var wire 1 G r_rst $end
+$var wire 1 H rinc $end
+$var wire 1 6 rempty $end
+$var wire 1 ` w_ptr [4] $end
+$var wire 1 a w_ptr [3] $end
+$var wire 1 b w_ptr [2] $end
+$var wire 1 c w_ptr [1] $end
+$var wire 1 d w_ptr [0] $end
+$var wire 1 Q r_ptr [4] $end
+$var wire 1 R r_ptr [3] $end
+$var wire 1 S r_ptr [2] $end
+$var wire 1 T r_ptr [1] $end
+$var wire 1 U r_ptr [0] $end
+$var wire 1 M raddr [3] $end
+$var wire 1 N raddr [2] $end
+$var wire 1 O raddr [1] $end
+$var wire 1 P raddr [0] $end
+$var reg 5 t gray_ptr [4:0] $end
+$var reg 5 u bn_ptr [4:0] $end
+$var reg 1 v empty_flag $end
+$var integer 32 w i $end
+$var wire 1 x empty_condition $end
+$upscope $end
+
+$scope module wptr_full $end
+$var parameter 32 y ADDR_WIDTH $end
+$var wire 1 ; w_clk $end
+$var wire 1 < w_rst $end
+$var wire 1 = winc $end
+$var wire 1 * wfull $end
+$var wire 1 [ w_ptr [4] $end
+$var wire 1 \ w_ptr [3] $end
+$var wire 1 ] w_ptr [2] $end
+$var wire 1 ^ w_ptr [1] $end
+$var wire 1 _ w_ptr [0] $end
+$var wire 1 V r_ptr [4] $end
+$var wire 1 W r_ptr [3] $end
+$var wire 1 X r_ptr [2] $end
+$var wire 1 Y r_ptr [1] $end
+$var wire 1 Z r_ptr [0] $end
+$var wire 1 I waddr [3] $end
+$var wire 1 J waddr [2] $end
+$var wire 1 K waddr [1] $end
+$var wire 1 L waddr [0] $end
+$var reg 5 z gray_ptr [4:0] $end
+$var reg 5 { bn_ptr [4:0] $end
+$var reg 1 | full_flag $end
+$var integer 32 } i $end
+$var wire 1 ~ full_condition $end
+$upscope $end
+$upscope $end
+$upscope $end
+
+$scope begin std $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1&
+1'
+0(
+b0 )
+1+
+1,
+0-
+bx i
+xl
+bx t
+bx u
+0v
+bx z
+bx {
+0|
+b1000 !
+b100 "
+b100000 #
+b11001 $
+b1010 %
+b1000 7
+b100 8
+b100000 9
+b10 :
+b1000 f
+b100 g
+b100000 h
+b10 m
+b101 n
+b10 p
+b101 q
+b100 s
+b100 y
+bx j
+b10 o
+b10 r
+b11 w
+b11 }
+0*
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+06
+xL
+xK
+xJ
+xI
+xP
+xO
+xN
+xM
+xU
+xT
+xS
+xR
+xQ
+xZ
+xY
+xX
+xW
+xV
+x_
+x^
+x]
+x\
+x[
+xd
+xc
+xb
+xa
+x`
+0e
+xk
+xx
+x~
+0H
+1G
+1F
+0E
+0D
+0C
+0B
+0A
+0@
+0?
+0>
+0=
+1<
+1;
+$end
+#5000
+0&
+0;
+0k
+0l
+#10000
+0'
+1&
+0<
+1;
+b0 o
+b1 o
+b10 o
+b0 j
+b1 j
+b10 j
+b11 j
+b100 j
+b101 j
+b110 j
+b111 j
+b1000 j
+b1001 j
+b1010 j
+b1011 j
+b1100 j
+b1101 j
+b1110 j
+b1111 j
+b10000 j
+b10001 j
+b10010 j
+b10011 j
+b10100 j
+b10101 j
+b10110 j
+b10111 j
+b11000 j
+b11001 j
+b11010 j
+b11011 j
+b11100 j
+b11101 j
+b11110 j
+b11111 j
+b100000 j
+b0 {
+b0 z
+b0 i
+05
+04
+03
+02
+01
+00
+0/
+0.
+0_
+0^
+0]
+0\
+0[
+0L
+0K
+0J
+0I
+0Z
+0Y
+0X
+0W
+0V
+0~
+#12000
+0+
+0F
+#15000
+0&
+0;
+#20000
+1'
+1&
+1<
+1;
+b0 }
+b1 }
+b10 }
+b11 }
+b1 o
+b10 o
+#24000
+1+
+1F
+b1 r
+b10 r
+b0 w
+b1 w
+b10 w
+b11 w
+#25000
+0,
+0&
+0G
+0;
+b0 r
+b1 r
+b10 r
+b0 u
+b0 t
+1v
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0M
+0d
+0c
+0b
+0a
+0`
+16
+1x
+#30000
+1&
+1;
+b1 o
+b10 o
+xZ
+xY
+xX
+xW
+xV
+x~
+#35000
+0&
+0;
+#36000
+0+
+0F
+#40000
+1&
+1;
+b1 o
+b10 o
+0Z
+0Y
+0X
+0W
+0V
+0~
+#45000
+0&
+0;
+#48000
+1+
+1F
+b0 r
+b1 r
+b10 r
+#50000
+1,
+1&
+1G
+1;
+b1 o
+b10 o
+#55000
+0&
+0;
+#60000
+0+
+1&
+0F
+1;
+#65000
+0&
+0;
+#70000
+1&
+1;
+#72000
+1+
+1F
+b1 r
+b10 r
+b0 w
+b1 w
+b10 w
+b11 w
+#75000
+0&
+0;
+#80000
+1&
+1;
+#84000
+0+
+0F
+#85000
+0&
+0;
+#90000
+1&
+1;
+#95000
+0&
+0;
+#96000
+1+
+1F
+#100000
+1&
+1;
+#105000
+0&
+0;
+#108000
+0+
+0F
+#110000
+1&
+1;
+#115000
+0&
+0;
+#120000
+1+
+1&
+1F
+1;
+#125000
+0&
+0;
+#130000
+1&
+1;
+#132000
+0+
+0F
+#135000
+0&
+0;
+#140000
+1&
+1;
+#144000
+1+
+1F
+#145000
+0&
+0;
+#150000
+1&
+1;
+#155000
+0&
+0;
+#156000
+0+
+0F
+#160000
+1&
+1;
+#165000
+0&
+0;
+#168000
+1+
+1F
+#170000
+1&
+1;
+#175000
+0&
+0;
+#180000
+0+
+1&
+0F
+1;
+#185000
+0&
+0;
+#190000
+1&
+1;
+#192000
+1+
+1F
+#195000
+0&
+0;
+#200000
+1&
+1;
+#204000
+0+
+0F
+#205000
+0&
+0;
+#210000
+1&
+1;
+#215000
+0&
+0;
+#216000
+1+
+1F
+#220000
+1&
+1;
+#225000
+0&
+0;
+#2
