@@ -109,7 +109,7 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
             Packet_Read(Test_Data);
         //stop the Testbench
         $display("======= Testbench End =======");
-        #1000; $stop;   
+        #100; $stop;   
     end
 
 //////////////////////////////
@@ -140,20 +140,28 @@ task Packet_Write;
     integer i;
     begin
     $display("Writing Data into FIFO has started at time=%0t",$time);
-    //Setting Time
-     tb_W_INC = 1'b1;
-
+    
     //Adding Data 
-    for ( i = 0; i <= PKT_SIZE-1 ; i=i+1 ) begin
-        tb_WR_DATA = INPUT_Data[i];
-        $display("Entering Data =%8b at time=%0t",INPUT_Data[i],$time);
-        @(posedge tb_W_CLK);
-        check_write_data(INPUT_Data[i]);
+    for ( i = 0; i <= PKT_SIZE-1 ; ) begin
+        if (!tb_FULL) begin
+            //Setting Time
+            tb_W_INC = 1'b1;
+            tb_WR_DATA = INPUT_Data[i];
+            $display("++++ Entering Data =%8b at time=%0t",INPUT_Data[i],$time);
+            @(posedge tb_W_CLK);
+            check_write_data(INPUT_Data[i]);
+            i=i+1; 
+        end else begin
+            $display("====> FIFO is FULL at time=%0t",$time);
+            tb_W_INC = 1'b1;
+            @(posedge tb_W_CLK);
+        end
+        
     end
     
     //Release Time
      #(WR_Clock_Period);
-     tb_W_INC = 1'b1;
+     tb_W_INC = 1'b0;
      $display("Writing Data into FIFO has finished at time=%0t",$time);
     end
 endtask    
@@ -192,20 +200,27 @@ task Packet_Read;
     integer i;
     begin
     $display("Reading Data into FIFO has started at time=%0t",$time);
-    //Setting Time
-     tb_R_INC = 1'b1;
-
+    
     //Adding Data 
-    wait(tb_EMPTY);
-    for ( i = 0; i <= PKT_SIZE-1 ; i=i+1 ) begin
-        $display("Outputing Data =%8b at time=%0t",INPUT_Data[i],$time);
-        @(posedge tb_W_CLK);
-        check_read_data(INPUT_Data[i]);
+    for ( i = 0; i <= PKT_SIZE-1 ;) begin
+        if (!tb_EMPTY) begin
+        //Setting Time
+            $display(" ---- Outputing Data =%8b at time=%0t",INPUT_Data[i],$time);
+            tb_R_INC = 1'b1;
+            @(posedge tb_R_CLK);
+            check_read_data(INPUT_Data[i]);
+            i=i+1;
+        end else begin
+        //Setting Time
+            $display("====> FIFO is Empty at time=%0t",$time);
+            tb_R_INC = 1'b0;
+            @(posedge tb_R_CLK);
+        end
     end
     
     //Release Time
-     #(WR_Clock_Period);
-     tb_W_INC = 1'b1;
+     #(RD_Clock_Period);
+     tb_R_INC = 1'b0;
      $display("Reading Data into FIFO has finished at time=%0t",$time);
     end
 endtask     
