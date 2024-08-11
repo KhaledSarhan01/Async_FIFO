@@ -22,7 +22,7 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
                 bn_ptr <= bn_ptr + winc & ~(full_flag);
         end
     end
-    
+
     // Gray Encoded Pointer Logic
     assign gray_ptr = (bn_ptr >>1) ^ bn_ptr;
     
@@ -31,7 +31,7 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
         if (!w_rst) begin
             full_flag <= 1'b0;
         end else begin
-            if ((gray_ptr[ADDR_WIDTH:ADDR_WIDTH-1] != r_ptr[ADDR_WIDTH:ADDR_WIDTH-1])&& (gray_ptr[ADDR_WIDTH-2:0] == r_ptr[ADDR_WIDTH-2:0])) begin
+            if ({~gray_ptr[ADDR_WIDTH:ADDR_WIDTH-1],gray_ptr[ADDR_WIDTH-2:0]} == r_ptr) begin
                 full_flag <= 1'b1;
             end else begin
                 full_flag <= 1'b0;
