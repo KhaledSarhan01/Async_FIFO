@@ -83,8 +83,8 @@ FIFO #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH),.MEM_SIZE(MEM_SIZE)) DUT(
     initial begin
         //Start the Testbench
         $display("======= Testbench Starts =======");
-        $dumpfile("tb_results.vcd");
-        $dumpvars;
+        //$dumpfile("tb_results.vcd");
+        //$dumpvars;
 
         // Write Initialization
             Write_Initialization();
@@ -205,8 +205,8 @@ task Packet_Read;
         //Setting Time
             $display(" ---- Outputing Data =%8b at time=%0t",INPUT_Data[i],$time);
             tb_R_INC = 1'b1;
-            @(posedge tb_R_CLK);
             check_read_data(INPUT_Data[i]);
+            @(posedge tb_R_CLK);
             i=i+1;
         end else begin
         //Setting Time
