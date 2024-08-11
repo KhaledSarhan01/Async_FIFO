@@ -11,7 +11,8 @@ module RD_CONTRL #(parameter ADDR_WIDTH = 4)(
 );
 
     //Registers
-    reg [ADDR_WIDTH:0] gray_ptr,bn_ptr;
+    wire [ADDR_WIDTH:0] gray_ptr;
+    reg [ADDR_WIDTH:0] bn_ptr;
     reg empty_flag;
 
     // Binary Encoded Pointer Logic
@@ -24,17 +25,7 @@ module RD_CONTRL #(parameter ADDR_WIDTH = 4)(
     end
 
     // Gray Encoded Pointer Logic
-    integer i; 
-    always @(*) begin
-        if (!r_rst) begin
-            gray_ptr <= 'b0;
-        end else begin
-            for (i=0; i<ADDR_WIDTH-1; i=i+1) begin
-            gray_ptr[i] = bn_ptr[i] ^ bn_ptr[i+1];
-            end 
-            gray_ptr[ADDR_WIDTH] = bn_ptr[ADDR_WIDTH];
-        end
-    end
+    assign gray_ptr = (bn_ptr >>1) ^ bn_ptr;
     
     // Full Flag Logic
     always @(posedge r_clk or negedge r_rst) begin

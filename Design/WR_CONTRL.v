@@ -10,7 +10,8 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
     output wire [ADDR_WIDTH-1:0] waddr
 );
     //Registers
-    reg [ADDR_WIDTH:0] gray_ptr,bn_ptr;
+    wire [ADDR_WIDTH:0] gray_ptr;
+    reg [ADDR_WIDTH:0] bn_ptr;
     reg full_flag;
 
     // Binary Encoded Pointer Logic
@@ -21,19 +22,9 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
                 bn_ptr <= bn_ptr + winc & ~(full_flag);
         end
     end
-
+    
     // Gray Encoded Pointer Logic
-    integer i; 
-    always @(*) begin
-        if (!w_rst) begin
-            gray_ptr <= 'b0;
-        end else begin
-            for (i=0; i<ADDR_WIDTH-1; i=i+1) begin
-            gray_ptr[i] = bn_ptr[i] ^ bn_ptr[i+1];
-            end 
-            gray_ptr[ADDR_WIDTH] = bn_ptr[ADDR_WIDTH];
-        end
-    end
+    assign gray_ptr = (bn_ptr >>1) ^ bn_ptr;
     
     // Full Flag Logic
     always @(posedge w_clk or negedge w_rst) begin
