@@ -125,10 +125,10 @@ task Write_Initialization;
 
 task  Write_Reset;
     begin
-        #(WR_Clock_Period); //set time
+        #(5); //set time
         $display("---->Reset the Write Part");
         tb_W_RST = 1'b0;
-        #(WR_Clock_Period); //release time
+        #(10); //release time
         tb_W_RST = 1'b1;  
     end
     endtask
@@ -185,10 +185,10 @@ task Read_Initialization;
 
 task Read_Reset;
     begin
-          #(RD_Clock_Period); //set time
+          #(5); //set time
           $display("---->Reset the Read Part");
           tb_R_RST = 1'b0;
-          #(RD_Clock_Period); //release time
+          #(10); //release time
           tb_R_RST = 1'b1;
     end
     endtask 

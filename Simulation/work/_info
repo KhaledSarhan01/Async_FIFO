@@ -25,6 +25,8 @@ R0
 R0
 R0
 R0
+R0
+R0
 !s11f MIXED_VERSIONS
 13
 !s112 1.1
@@ -56,18 +58,17 @@ n@_opt1
 R5
 R1
 T_opt2
-!s110 1723339579
-VNGz?IzSMPZjG[[n[>_glM2
+Z7 !s110 1723408826
+VfHfPV_jN@KaT@YMB?OWXo2
 R2
-=4-902e161d0c93-66b8133b-1bd-5904
+=2-902e161d0c93-66b921ba-110-3c7c
 R3
 R6
 R4
 n@_opt2
 R5
-R1
 vDATA_SYNC
-Z7 !s110 1723339655
+R7
 !i10b 1
 !s100 6D8ZeLR0K0;Y<JQ`8=0HS2
 INl?J]cH=2KP<^h6ZNV^SG2
@@ -75,18 +76,18 @@ Z8 dD:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Simulation
 w1723210889
 8../Design/DATA_SYNC.v
 F../Design/DATA_SYNC.v
-!i122 72
+!i122 74
 L0 1 19
 Z9 VDg1SIo80bB@j0V0VzS_@n1
 Z10 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z11 !s108 1723339655.000000
-!s107 ../Testbench/Testbench.sv|../Design/RD_CONTRL.v|../Design/WR_CONTRL.v|../Design/FIFO_RAM.v|../Design/FIFO.v|../Design/DATA_SYNC.v|
-Z12 !s90 -reportprogress|300|-f|sourcefile.txt|
+Z11 !s108 1723408826.000000
+Z12 !s107 ../Testbench/Testbench.sv|../Design/RD_CONTRL.v|../Design/WR_CONTRL.v|../Design/FIFO_RAM.v|../Design/FIFO.v|../Design/DATA_SYNC.v|
+Z13 !s90 -reportprogress|300|-f|sourcefile.txt|
 !i113 0
-Z13 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R4
 n@d@a@t@a_@s@y@n@c
 vDUAL_RAM
@@ -98,7 +99,7 @@ R8
 w1723337442
 8../Design/FIFO_RAM.v
 F../Design/FIFO_RAM.v
-!i122 72
+!i122 74
 L0 1 32
 R9
 R10
@@ -106,22 +107,22 @@ r1
 !s85 0
 31
 R11
-Z14 !s107 ../Testbench/Testbench.sv|../Design/RD_CONTRL.v|../Design/WR_CONTRL.v|../Design/FIFO_RAM.v|../Design/FIFO.v|../Design/DATA_SYNC.v|
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 n@d@u@a@l_@r@a@m
 vFIFO
 R7
 !i10b 1
-!s100 W4IIRJN`0U1W9:1<HKK[i3
-I8=H@n4C^zNflXc=1]@0aD1
+!s100 o^f1H`3>P?W[EQg;6j?QT0
+IAlbUoiXd79G6<l^C9knBc1
 R8
-w1723210861
+w1723408352
 8../Design/FIFO.v
 F../Design/FIFO.v
-!i122 72
+!i122 74
 L0 1 79
 R9
 R10
@@ -129,10 +130,10 @@ r1
 !s85 0
 31
 R11
-R14
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 n@f@i@f@o
 vRD_CONTRL
@@ -144,7 +145,7 @@ R8
 Z15 w1723215600
 8../Design/RD_CONTRL.v
 F../Design/RD_CONTRL.v
-!i122 72
+!i122 74
 L0 1 58
 R9
 R10
@@ -152,24 +153,24 @@ r1
 !s85 0
 31
 R11
-R14
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 n@r@d_@c@o@n@t@r@l
 vtb_FIFO
 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 R7
 !i10b 1
-!s100 1ELM]6>8mV7o`B64cBX_@1
-INR83HLb4Tm;hC@IbkK?E`0
+!s100 aR5<^_[TS0hbRY7FkDkWG0
+I4U8[9DmOS7e2Df[COC`3e2
 S1
 R8
-w1723339411
+w1723408815
 8../Testbench/Testbench.sv
 F../Testbench/Testbench.sv
-!i122 72
+!i122 74
 L0 14 224
 R9
 R10
@@ -177,10 +178,10 @@ r1
 !s85 0
 31
 R11
-R14
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 ntb_@f@i@f@o
 vWR_CONTRL
@@ -192,7 +193,7 @@ R8
 R15
 8../Design/WR_CONTRL.v
 F../Design/WR_CONTRL.v
-!i122 72
+!i122 74
 L0 1 57
 R9
 R10
@@ -200,9 +201,9 @@ r1
 !s85 0
 31
 R11
-R14
 R12
-!i113 0
 R13
+!i113 0
+R14
 R4
 n@w@r_@c@o@n@t@r@l
