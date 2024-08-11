@@ -18,15 +18,13 @@ module WR_CONTRL #(parameter ADDR_WIDTH = 4)(
         if (!w_rst) begin
             bn_ptr <= 'b0;
         end else begin
-            if(winc & ~(full_flag))begin
-                bn_ptr <= bn_ptr + 'd1;
-            end
+                bn_ptr <= bn_ptr + winc & ~(full_flag);
         end
     end
 
     // Gray Encoded Pointer Logic
     integer i; 
-    always @(posedge w_clk or negedge w_rst) begin
+    always @(*) begin
         if (!w_rst) begin
             gray_ptr <= 'b0;
         end else begin
