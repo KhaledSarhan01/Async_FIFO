@@ -1,4 +1,4 @@
-module FIFO #(parameter DATA_WIDTH = 8 ,parameter ADDR_WIDTH = 4,parameter MEM_SIZE = 32)(
+module FIFO #(parameter DATA_WIDTH = 8 ,parameter ADDR_WIDTH = 3,parameter MEM_SIZE = 8)(
     //Write Part
     input wire W_CLK,W_RST,
     input wire W_INC,
