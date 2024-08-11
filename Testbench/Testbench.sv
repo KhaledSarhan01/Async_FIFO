@@ -152,7 +152,7 @@ task Packet_Write;
         end else begin
             $display("====> FIFO is FULL at time=%0t",$time);
             tb_W_INC = 1'b1;
-            @(posedge tb_W_CLK);
+            #(WR_Clock_Period*0.5);
         end
         
     end
@@ -212,7 +212,7 @@ task Packet_Read;
         //Setting Time
             $display("====> FIFO is Empty at time=%0t",$time);
             tb_R_INC = 1'b0;
-            @(posedge tb_R_CLK);
+            #(RD_Clock_Period*0.5);
         end
     end
     

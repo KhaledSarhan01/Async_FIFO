@@ -34,6 +34,9 @@ R0
 R0
 R0
 R0
+R0
+R0
+R0
 !s11f MIXED_VERSIONS
 13
 !s112 1.1
@@ -65,10 +68,10 @@ n@_opt1
 R5
 R1
 T_opt2
-Z7 !s110 1723411076
-Va>8_?M8HUO4oJ0P52I;<S1
+Z7 !s110 1723411470
+Vf5BLfhY=;Km`3@FQh8]C?1
 R2
-=11-902e161d0c93-66b92a84-c2-3c7c
+=14-902e161d0c93-66b92c0e-22b-3c7c
 R3
 R6
 R4
@@ -83,14 +86,14 @@ Z8 dD:/Digital/Eltamseh Diplomia/Part 2/Projects/ASYNC_FIFO/Simulation
 w1723210889
 8../Design/DATA_SYNC.v
 F../Design/DATA_SYNC.v
-!i122 83
+!i122 86
 L0 1 19
 Z9 VDg1SIo80bB@j0V0VzS_@n1
 Z10 OL;L;2021.1;73
 r1
 !s85 0
 31
-Z11 !s108 1723411076.000000
+Z11 !s108 1723411470.000000
 Z12 !s107 ../Testbench/Testbench.sv|../Design/RD_CONTRL.v|../Design/WR_CONTRL.v|../Design/FIFO_RAM.v|../Design/FIFO.v|../Design/DATA_SYNC.v|
 Z13 !s90 -reportprogress|300|-f|sourcefile.txt|
 !i113 0
@@ -106,7 +109,7 @@ R8
 w1723337442
 8../Design/FIFO_RAM.v
 F../Design/FIFO_RAM.v
-!i122 83
+!i122 86
 L0 1 32
 R9
 R10
@@ -129,7 +132,7 @@ R8
 w1723408352
 8../Design/FIFO.v
 F../Design/FIFO.v
-!i122 83
+!i122 86
 L0 1 79
 R9
 R10
@@ -149,10 +152,10 @@ R7
 !s100 >iZmRk]VMFbi<NKg4;kbi0
 IZ9REXLzYWEA[?J22@6Q4`0
 R8
-w1723411062
+w1723411121
 8../Design/RD_CONTRL.v
 F../Design/RD_CONTRL.v
-!i122 83
+!i122 86
 L0 1 56
 R9
 R10
@@ -170,14 +173,14 @@ vtb_FIFO
 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 R7
 !i10b 1
-!s100 8Z2^a0fLf9NIbmMk34nNL3
-I[PL^6Gh9CLC?b[Y[TUJG^0
+!s100 W4KTekk]aVBmiUJfdNKeO1
+Ig@OQ]D8o7<ekFW2Hm;HRb3
 S1
 R8
-w1723409832
+w1723411465
 8../Testbench/Testbench.sv
 F../Testbench/Testbench.sv
-!i122 83
+!i122 86
 L0 14 224
 R9
 R10
@@ -194,14 +197,14 @@ ntb_@f@i@f@o
 vWR_CONTRL
 R7
 !i10b 1
-!s100 6`ZKeombN6oa9>Ob3L:iO0
-I1_ZX_J<EnSbmP66gBmdcd2
+!s100 i];keLFC_U76]fg?5T;]Y0
+ILBkzNXdVb;5b86UE4hj?I3
 R8
-w1723215600
+w1723411211
 8../Design/WR_CONTRL.v
 F../Design/WR_CONTRL.v
-!i122 83
-L0 1 57
+!i122 86
+L0 1 55
 R9
 R10
 r1
