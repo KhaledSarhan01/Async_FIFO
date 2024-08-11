@@ -38,8 +38,6 @@ module tb_FIFO;
     assign RAM_MEMORY = DUT.FIFO_MEMORY.MEM;
     wire [ADDR_WIDTH-1:0] Wr_address;
     assign Wr_address = DUT.Wr_ADDR;
-    wire [ADDR_WIDTH-1:0] Rd_address;
-    assign Rd_address = DUT.Rd_ADDR;
 
 //Test Data
     reg [DATA_WIDTH-1:0] Test_Data [PKT_SIZE-1:0];
